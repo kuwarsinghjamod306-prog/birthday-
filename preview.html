@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Tanu 💖</title>
+<style>
+body {
+  background: linear-gradient(to bottom, #ffe4ec, #fff);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1 {
+  color: #ff4d88;
+  font-size: 40px;
+  animation: fadeIn 2s;
+}
+
+.message {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  white-space: pre-line;
+  font-size: 18px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 300px;
+  border-radius: 15px;
+  margin: 10px;
+  transition: transform 0.4s, opacity 1s;
+  opacity: 0;
+}
+
+.gallery img.show {
+  opacity: 1;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff4d88;
+  top: 0;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+@keyframes fall {
+  0% {transform: translateY(-10px) rotate(0deg);}
+  100% {transform: translateY(100vh) rotate(360deg);}
+}
+
+.heart {
+  position: absolute;
+  color: pink;
+  font-size: 24px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh) scale(0.5);}
+  50% {transform: translateY(50vh) scale(1);}
+  100% {transform: translateY(-10vh) scale(0);}
+}
+
+iframe {
+  margin-top: 15px;
+  border-radius: 15px;
+}
+</style>
+</head>
+<body>
+
+<h1>🎂 Happy Birthday Tanishka 💖</h1>
+<p>2 April – the day someone special was born 🌸✨</p>
+
+<iframe 
+  src="https://open.spotify.com/embed/track/6n4LpWn6gFvczitm1QMi3R" 
+  width="300" 
+  height="80" 
+  frameborder="0" 
+  allowtransparency="true" 
+  allow="encrypted-media">
+</iframe>
+
+<div class="message" id="text"></div>
+
+<!-- Ghibli-style Portrait -->
+<div class="gallery">
+  <img src="https://copilot.microsoft.com/th/id/BCO.dc8f103e-8832-4d13-9c1e-485bed379382.png" alt="Tanu Ghibli Portrait">
+</div>
+
+<script>
+// Typewriter effect
+const message = `Dear Tanu 💖,
+
+I don’t even know where to start… but I just want you to know that just being around you brightens my day and fills it with warmth 🌸✨
+
+I hope this birthday brings you all the happiness you deserve 😌💫  
+Never change, okay? You’re already perfect 💕
+
+I’m really lucky to have you.  
+Enjoy your day, eat lots of cake 🎂 and just be happy 💖
+
+Happy Birthday 🎉  
+– I apologize for any errors — this is my first attempt, and I appreciate your understanding. 💌`;
+
+let i = 0;
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, 30);
+  }
+}
+typeWriter();
+
+// Animate image
+window.onload = () => {
+  const imgs = document.querySelectorAll(".gallery img");
+  imgs.forEach((img, idx) => {
+    setTimeout(() => img.classList.add("show"), idx * 500);
+  });
+  createConfetti(50);
+  createHearts(20);
+};
+
+// Confetti generator
+function createConfetti(num) {
+  for (let i=0; i<num; i++) {
+    const conf = document.createElement('div');
+    conf.classList.add('confetti');
+    conf.style.left = Math.random() * window.innerWidth + 'px';
+    conf.style.backgroundColor = ['#ff4d88','#ff85a2','#ffe4ec'][Math.floor(Math.random()*3)];
+    conf.style.animationDuration = 2 + Math.random()*3 + 's';
+    document.body.appendChild(conf);
+  }
+}
+
+// Floating hearts generator
+function createHearts(num) {
+  for (let i=0; i<num; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random()*window.innerWidth + 'px';
+    heart.style.animationDuration = 4 + Math.random()*4 + 's';
+    heart.innerHTML = '💖';
+    document.body.appendChild(heart);
+  }
+}
+</script>
+
+</body>
+</html>
+```
